@@ -1,18 +1,21 @@
 package com.example;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestGreeter {
 
   private Greeter greeter;
 
-  @Before
+  @BeforeAll
   public void setup() {
     greeter = new Greeter();
   }
